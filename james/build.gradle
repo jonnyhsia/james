@@ -1,0 +1,24 @@
+plugins {
+    id 'java-library'
+    id 'org.jetbrains.kotlin.jvm'
+    id 'org.gradle.kotlin.kotlin-dsl' version '4.0.6'
+}
+
+apply from: './upload-plugin.gradle'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+kotlin {
+    jvmToolchain(11)
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:7.4.2'
+    implementation "com.joom.grip:grip:0.9.1"
+    implementation "org.javassist:javassist:3.26.0-GA"
+}

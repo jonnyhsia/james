@@ -1,0 +1,21 @@
+apply plugin: 'maven-publish'
+
+def localMavenRepo = 'file://' + new File(System.getProperty('user.home'), '.m2/repository').absolutePath
+
+afterEvaluate {
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                from components.java
+                groupId = 'com.arch.jonnyhsia'
+                artifactId = 'james'
+                version = '1.0.0'
+            }
+        }
+        repositories {
+            maven {
+                url = localMavenRepo
+            }
+        }
+    }
+}
